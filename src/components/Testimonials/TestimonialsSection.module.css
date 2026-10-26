@@ -1,0 +1,494 @@
+/* ==========================================================================
+   Testimonials & Social Proof Section - Premium Growtech Design System
+   ========================================================================== */
+
+.testimonialsSection {
+  position: relative;
+  width: 100%;
+  padding: 110px clamp(20px, 5.3vw, 80px) 120px;
+  background: 
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(224, 236, 255, 0.7) 0%, rgba(244, 248, 255, 0.35) 45%, #F8FAFD 85%, #FFFFFF 100%);
+  direction: rtl;
+  font-family: 'IBM Plex Sans Arabic', 'Cairo', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Subtle background grid pattern for depth */
+.bgGridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(6, 46, 136, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 46, 136, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 85%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient glow accents */
+.ambientOrb1 {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(27, 86, 214, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.ambientOrb2 {
+  position: absolute;
+  bottom: 8%;
+  left: -5%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(255, 141, 40, 0.09) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(55px);
+  z-index: 0;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.sectionHeader {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 52px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1px solid rgba(6, 46, 136, 0.14);
+  padding: 8px 18px;
+  border-radius: 100px;
+  box-shadow: 0 4px 16px rgba(6, 46, 136, 0.06);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #062E88;
+  letter-spacing: 0.1px;
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FF8D28;
+  box-shadow: 0 0 10px rgba(255, 141, 40, 0.7);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.8;
+  }
+}
+
+.heading {
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 800;
+  color: #062E88;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.brandHighlight {
+  background: linear-gradient(135deg, #062E88 0%, #1B56D6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.subheading {
+  font-size: clamp(15px, 1.2vw, 17px);
+  color: #556987;
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 400;
+  max-width: 680px;
+}
+
+/* ==========================================================================
+   Stats Counter Row (Redesigned with Icons & Micro-Gradients)
+   ========================================================================== */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 56px;
+}
+
+.statCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(6, 46, 136, 0.08);
+  border-radius: 22px;
+  padding: 24px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 
+    0 4px 18px rgba(6, 46, 136, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top subtle gradient highlight on stat cards */
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 0.28s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 14px 32px rgba(6, 46, 136, 0.09),
+    0 2px 6px rgba(0, 0, 0, 0.03);
+  border-color: rgba(27, 86, 214, 0.3);
+}
+
+/* Icon Box Themes */
+.statIconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.28s ease;
+}
+
+.statCard:hover .statIconWrapper {
+  transform: scale(1.08);
+}
+
+.statBlue .statIconWrapper {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid rgba(29, 78, 216, 0.15);
+}
+.statBlue:hover::before {
+  background: linear-gradient(90deg, #1D4ED8, #3B82F6);
+}
+
+.statAmber .statIconWrapper {
+  background: #FEF3C7;
+  color: #D97706;
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+.statAmber:hover::before {
+  background: linear-gradient(90deg, #D97706, #F59E0B);
+}
+
+.statIndigo .statIconWrapper {
+  background: #EEF2FF;
+  color: #4F46E5;
+  border: 1px solid rgba(79, 70, 229, 0.18);
+}
+.statIndigo:hover::before {
+  background: linear-gradient(90deg, #4F46E5, #6366F1);
+}
+
+.statGreen .statIconWrapper {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid rgba(5, 150, 105, 0.18);
+}
+.statGreen:hover::before {
+  background: linear-gradient(90deg, #059669, #10B981);
+}
+
+.statTextWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  text-align: right;
+}
+
+.statNumber {
+  font-size: clamp(26px, 2.2vw, 34px);
+  font-weight: 800;
+  color: #062E88;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+
+.statLabel {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #64748B;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   Testimonials Grid (Refined Glass Cards with Quote Watermark)
+   ========================================================================== */
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.testimonialCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(6, 46, 136, 0.09);
+  border-radius: 26px;
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 
+    0 10px 30px -5px rgba(6, 46, 136, 0.05),
+    0 2px 8px rgba(6, 46, 136, 0.02);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 22px 48px -10px rgba(6, 46, 136, 0.12),
+    0 4px 12px rgba(6, 46, 136, 0.04);
+  border-color: rgba(27, 86, 214, 0.35);
+}
+
+/* Decorative quotation watermark in background */
+.quoteWatermark {
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  color: rgba(6, 46, 136, 0.06);
+  pointer-events: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.testimonialCard:hover .quoteWatermark {
+  color: rgba(27, 86, 214, 0.12);
+  transform: scale(1.06);
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Rating Row */
+.ratingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.stars {
+  display: flex;
+  gap: 3.5px;
+  color: #F59E0B;
+}
+
+.stars svg {
+  filter: drop-shadow(0 1px 2px rgba(245, 158, 11, 0.25));
+}
+
+.projectBadge {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #062E88;
+  background: #F0F5FF;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(6, 46, 136, 0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.badgePulseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1B56D6;
+}
+
+.quoteText {
+  font-size: 15.5px;
+  line-height: 1.82;
+  color: #2D3748;
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Author Row */
+.authorRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(6, 46, 136, 0.07);
+  position: relative;
+  z-index: 1;
+}
+
+.authorLeftGroup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: right;
+}
+
+.authorAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #062E88 0%, #1E5CE6 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 
+    0 0 0 3px rgba(30, 92, 230, 0.14),
+    0 4px 12px rgba(6, 46, 136, 0.2);
+  flex-shrink: 0;
+  letter-spacing: -0.5px;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-start;
+}
+
+.authorNameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.authorName {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0A1C40;
+  margin: 0;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #059669;
+  background: #ECFDF5;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  padding: 2px 7px;
+  border-radius: 100px;
+}
+
+.authorRole {
+  font-size: 12.5px;
+  color: #64748B;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 1120px) {
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 980px) {
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .testimonialsSection {
+    padding: 70px 18px 80px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 38px;
+    gap: 12px;
+  }
+
+  .statsRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 38px;
+  }
+
+  .statCard {
+    padding: 20px 18px;
+  }
+
+  .testimonialCard {
+    padding: 26px 22px;
+    border-radius: 20px;
+  }
+
+  .quoteText {
+    font-size: 14.5px;
+  }
+
+  .ratingRow {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

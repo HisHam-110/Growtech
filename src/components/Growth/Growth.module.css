@@ -1,0 +1,416 @@
+/* Growth & Process Section Styles */
+.growthSection {
+  width: 100%;
+  min-height: 660px;
+  background: #365AA8;
+  padding: 50px 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  direction: rtl;
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Ambient Background Glow */
+.glowRight {
+  position: absolute;
+  top: 50%;
+  right: -240px;
+  transform: translateY(-50%) rotate(90deg);
+  width: 687px;
+  height: 489px;
+  background: rgba(255, 255, 255, 0.18);
+  filter: blur(180px);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.glowLeft {
+  position: absolute;
+  top: 50%;
+  left: -240px;
+  transform: translateY(-50%) rotate(90deg);
+  width: 687px;
+  height: 489px;
+  background: rgba(255, 255, 255, 0.18);
+  filter: blur(180px);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header centered above diagram */
+.header {
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  z-index: 3;
+  position: relative;
+}
+
+.title {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: clamp(26px, 2.5vw, 34px);
+  font-weight: 700;
+  color: #FFFFFF;
+  width: 100%;
+  margin: 0 auto 10px auto;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  font-size: clamp(13px, 1.1vw, 15px);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Diagram Layout: 3 Columns side by side */
+.diagramWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  position: relative;
+  min-height: 520px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Cards Columns */
+.cardsColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 2;
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+
+.rightColumn {
+  align-items: stretch;
+}
+
+.leftColumn {
+  align-items: stretch;
+}
+
+/* Individual Card */
+.card {
+  width: 100%;
+  border-radius: 18px;
+  padding: 16px 14px 18px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+}
+
+/* White Cards */
+.cardWhite {
+  background: #FFFFFF;
+}
+
+.cardWhite .cardText {
+  color: #555555;
+}
+
+/* Middle Card (Slate Blue) */
+.cardMiddle {
+  background: #6C86BF;
+}
+
+.cardMiddle .cardText {
+  color: #FFFFFF;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 18px;
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-align: center;
+  margin: 0;
+  user-select: none;
+}
+
+.badgeOrange {
+  background-color: #F18659;
+}
+
+.badgeNavy {
+  background-color: #1E3F88;
+}
+
+/* Card Description Text */
+.cardText {
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 13.5px;
+  line-height: 1.65;
+  font-weight: 400;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Center Column Area */
+.centerArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 520px;
+  padding: 0;
+  z-index: 1;
+}
+
+/* Graphic and Connecting Arrows Container */
+.graphicWithArrows {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerGraphicContainer {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatAnim 4s ease-in-out infinite alternate;
+}
+
+.centerGraphic {
+  width: 195px;
+  height: 215px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.25));
+  user-select: none;
+}
+
+/* Center Glow */
+.centerGraphicGlow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.65);
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes floatAnim {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.015);
+  }
+}
+
+/* Arrow Positioning connecting to cards */
+.arrowWrapper {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.65;
+  transition: opacity 0.3s ease;
+}
+
+.arrowImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Right-pointing Arrows */
+.arrowTopRight {
+  left: calc(50% + 80px);
+  bottom: calc(50% + 20px);
+  width: 240px;
+}
+
+.arrowMidRight {
+  left: calc(50% + 110px);
+  top: calc(50% - 15px);
+  transform: translateY(-36.5%);
+  width: 230px;
+}
+
+.arrowBotRight {
+  left: calc(50% + 80px);
+  top: calc(50% - 3px);
+  width: 240px;
+}
+
+/* Left-pointing Arrows (scaleX flip) */
+.arrowTopLeft {
+  right: calc(50% + 80px);
+  bottom: calc(50% + 20px);
+  width: 240px;
+  transform: scaleX(-1);
+}
+
+.arrowMidLeft {
+  right: calc(50% + 110px);
+  top: calc(50% - 15px);
+  transform: translateY(-36.5%) scaleX(-1);
+  width: 230px;
+}
+
+.arrowBotLeft {
+  right: calc(50% + 80px);
+  top: calc(50% - 3px);
+  width: 240px;
+  transform: scaleX(-1);
+}
+
+/* Responsive Styles */
+@media (max-width: 1140px) {
+  .diagramWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .cardsColumn {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .centerArea {
+    order: -1;
+    width: 100%;
+    min-height: auto;
+    height: 220px;
+  }
+
+  .graphicWithArrows {
+    height: 200px;
+  }
+
+  .arrowWrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .growthSection {
+    padding: 45px 0 50px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+}
+
+/* Bottom CTA Button: تواصل معنا */
+.bottomCtaWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  position: relative;
+  z-index: 3;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: #FFFFFF;
+  color: #062E88;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 24px 8px 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  background: #F8FAFC;
+}
+
+.ctaText {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: #062E88;
+  line-height: 1;
+}
+
+.ctaIconCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #062E88;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaIconCircle {
+  transform: rotate(-45deg);
+}
+

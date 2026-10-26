@@ -1,0 +1,449 @@
+.portfolioSection {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(98.86deg, #0F2352 -33.24%, #2F4B8E 38.26%, #4E73C9 109.76%);
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  box-sizing: border-box;
+  direction: rtl;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+/* Ambient glow & lighting layers */
+.glowOverlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 60% 50% at 85% 40%, rgba(78, 115, 201, 0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 15% 85%, rgba(15, 35, 82, 0.7) 0%, transparent 75%);
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 35px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  min-height: 540px;
+}
+
+/* ==========================================================================
+   Right Area (in RTL): Text Content & CTA
+   ========================================================================== */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: right;
+  padding-left: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  z-index: 5;
+}
+
+.mainTitle {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: clamp(38px, 4vw, 52px);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.5px;
+}
+
+.mainDescription {
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 500px;
+  margin: 0 0 26px 0;
+  font-weight: 400;
+}
+
+/* CTA Pill Button */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  color: #0F2352;
+  border: none;
+  border-radius: 9999px;
+  padding: 7px 22px 7px 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+  background: #F8FAFC;
+}
+
+.ctaText {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #0F2352;
+  line-height: 1;
+}
+
+.iconCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0F2352;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .iconCircle {
+  transform: rotate(-45deg);
+}
+
+/* ==========================================================================
+   Left Area (in RTL): Tilted Showcase with Infinite Marquee Columns
+   ========================================================================== */
+.visualCol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 540px;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.backdropBlurGlow {
+  position: absolute;
+  width: 734px;
+  height: 576px;
+  top: -62.57px;
+  left: 25px;
+  background: #001647;
+  opacity: 0.95;
+  border-radius: 50%;
+  filter: blur(300px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tiltedContainer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 24px;
+  transform: translate(-85px, -32px) rotate(12.5deg);
+  transform-origin: center center;
+  width: 100%;
+  max-width: 580px;
+  justify-content: center;
+}
+
+.columnWrapper {
+  flex: 0 0 245px;
+  width: 245px;
+  min-width: 245px;
+  max-width: 245px;
+  overflow: visible;
+  height: 860px;
+  margin: -160px 0;
+  position: relative;
+}
+
+.columnWrapperLeft {
+  transform: translateY(28px);
+}
+
+.columnWrapperRight {
+  transform: translateY(-28px);
+}
+
+/* Column scrolling UP (Right column in RTL) */
+.cardsColumnUp {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  animation: scrollUp 24s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Column scrolling DOWN (Left column in RTL) */
+.cardsColumnDown {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  animation: scrollDown 24s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Pause marquee on hover */
+.visualCol:hover .cardsColumnUp,
+.visualCol:hover .cardsColumnDown {
+  animation-play-state: paused;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-50% - 12px));
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(calc(-50% - 12px));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Project Cards - Strictly Fixed Dimensions
+   ========================================================================== */
+.projectCard {
+  position: relative;
+  border-radius: 26px;
+  padding: 22px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.38);
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 245px;
+  min-width: 245px;
+  max-width: 245px;
+  height: 330px;
+  min-height: 330px;
+  max-height: 330px;
+  flex: 0 0 330px;
+  flex-shrink: 0;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.projectCard:hover {
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.48);
+}
+
+/* Card Themes */
+.blueCard {
+  background: linear-gradient(180deg, #B8CDFF 0%, #002478 100%);
+  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.16);
+}
+
+.amberCard {
+  background: linear-gradient(180deg, #D8BFAC 0%, #A6632E 100%);
+  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.08);
+}
+
+.darkCard {
+  background: linear-gradient(180deg, #ADADAD 0%, #000000 100%);
+  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.16);
+}
+
+/* Grid Lines Pattern (4 columns x 7 rows) */
+.cardGridBg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: calc(100% / 4) calc(100% / 7);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Card Title */
+.cardTitle {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 21px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+  text-align: center;
+  letter-spacing: -0.2px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Mockups wrapper */
+.mockupWrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockupImgLaptop {
+  max-width: 95%;
+  max-height: 210px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.46));
+}
+
+.mockupImgPerfume {
+  max-width: 104%;
+  max-height: 215px;
+  height: auto;
+  object-fit: contain;
+  transform: rotate(-10deg) scale(1.04);
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.46));
+}
+
+.mockupImgPhones {
+  max-width: 85%;
+  max-height: 210px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.48));
+}
+
+.mockupImgPhoneSingle {
+  max-width: 65%;
+  max-height: 210px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .portfolioSection {
+    padding: 40px 0;
+  }
+
+  .layoutGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .contentCol {
+    align-items: center;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .mainDescription {
+    max-width: 540px;
+  }
+
+  .visualCol {
+    height: 390px;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolioSection {
+    padding: 32px 0;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .visualCol {
+    height: 340px;
+  }
+
+  .tiltedContainer {
+    max-width: 320px;
+    gap: 12px;
+    transform: rotate(6deg);
+  }
+
+  .columnWrapper {
+    height: 420px;
+    margin: -40px 0;
+  }
+
+  .cardsColumnUp,
+  .cardsColumnDown {
+    gap: 12px;
+  }
+
+  @keyframes scrollUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(calc(-50% - 6px));
+    }
+  }
+
+  @keyframes scrollDown {
+    0% {
+      transform: translateY(calc(-50% - 6px));
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .projectCard {
+    height: 175px;
+    padding: 12px 8px 6px;
+    border-radius: 16px;
+  }
+
+  .cardTitle {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .mockupImgLaptop {
+    max-height: 105px;
+  }
+
+  .mockupImgPerfume {
+    max-height: 110px;
+    transform: rotate(-10deg) scale(1.04);
+  }
+
+  .mockupImgPhones {
+    max-height: 105px;
+  }
+
+  .mockupImgPhoneSingle {
+    max-height: 105px;
+  }
+}

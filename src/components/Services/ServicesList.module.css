@@ -1,0 +1,293 @@
+.servicesListSection {
+  position: relative;
+  width: 100%;
+  background: #F8FAFC;
+  padding: 90px 0 100px;
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  box-sizing: border-box;
+  direction: rtl;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Header Styles
+   ========================================================================== */
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.mainTitle {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: clamp(32px, 3.8vw, 46px);
+  font-weight: 700;
+  color: #062E88;
+  line-height: 1.3;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 16px;
+  color: #64748B;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   4 Cards Horizontal Grid
+   ========================================================================== */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Service Card & Hover Animation
+   ========================================================================== */
+.serviceCard {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1.5px solid #E6EDF5;
+  border-radius: 24px;
+  padding: 34px 26px 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: right;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(6, 46, 136, 0.03);
+  cursor: pointer;
+  box-sizing: border-box;
+  isolation: isolate;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Background overlay sliding from top to bottom */
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3354A0;
+  z-index: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 22px;
+}
+
+/* Hover State */
+.serviceCard:hover {
+  border-color: #3354A0;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(51, 84, 160, 0.3);
+}
+
+.serviceCard:hover::before {
+  transform: scaleY(1);
+}
+
+/* ==========================================================================
+   Traveling Floating Icon (Top-Right -> Bottom-Left on Hover)
+   ========================================================================== */
+.floatingIconContainer {
+  position: absolute;
+  top: 32px;
+  right: 26px;
+  width: 44px;
+  height: 44px;
+  z-index: 1;
+  pointer-events: none;
+  transition: top 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              right 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              width 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* On hover: Fly down-left to bottom-left corner and expand */
+.serviceCard:hover .floatingIconContainer {
+  top: calc(100% - 94px);
+  right: calc(100% - 94px);
+  width: 82px;
+  height: 82px;
+}
+
+.primaryIcon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.35s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.watermarkIcon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.1s, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.serviceCard:hover .primaryIcon {
+  opacity: 0;
+}
+
+.serviceCard:hover .watermarkIcon {
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   Card Body Content (Slides up to fill top space on hover)
+   ========================================================================== */
+.cardBody {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.serviceCard:hover .cardBody {
+  transform: translateY(-48px);
+}
+
+.cardTitle {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 21px;
+  font-weight: 700;
+  color: #062E88;
+  margin: 0 0 12px 0;
+  line-height: 1.35;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cardDescription {
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.7;
+  margin: 0 0 28px 0;
+  font-weight: 400;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #062E88;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bulletDot {
+  font-size: 9px;
+  color: #2E69F0;
+  flex-shrink: 0;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.serviceCard:hover .cardTitle {
+  color: #FFFFFF;
+}
+
+.serviceCard:hover .cardDescription {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.serviceCard:hover .featureItem {
+  color: #FFFFFF;
+}
+
+.serviceCard:hover .bulletDot {
+  color: #FFFFFF;
+  transform: scale(1.2);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .servicesListSection {
+    padding: 60px 0 70px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .serviceCard {
+    padding: 28px 20px 32px;
+  }
+
+  .cardBody {
+    margin-top: 48px;
+  }
+
+  .serviceCard:hover .cardBody {
+    transform: translateY(-40px);
+  }
+
+  .floatingIconContainer {
+    top: 24px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .serviceCard:hover .floatingIconContainer {
+    top: calc(100% - 80px);
+    right: calc(100% - 80px);
+    width: 70px;
+    height: 70px;
+  }
+}

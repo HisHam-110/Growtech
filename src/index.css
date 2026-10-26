@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'The Year of Handicrafts';
+  src: url('/fonts/TheYearOfHandicrafts-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Year of Handicrafts';
+  src: url('/fonts/TheYearOfHandicrafts-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Year of Handicrafts';
+  src: url('/fonts/TheYearOfHandicrafts-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-heading: 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
+  --color-primary: #062E88;
+  --color-primary-dark: #042062;
+  --color-text-sub: #5E718D;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-arabic);
+  color: #1a1a1a;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+p, span, a, input, textarea, select {
+  font-family: var(--font-arabic);
+}
+
+button {
+  font-family: var(--font-heading);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-arabic);
+}

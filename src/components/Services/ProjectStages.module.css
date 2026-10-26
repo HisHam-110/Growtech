@@ -1,0 +1,243 @@
+/* Project Stages Section */
+.stagesSection {
+  width: 100%;
+  padding: 90px 24px 130px;
+  background-color: #FFFFFF;
+  position: relative;
+  direction: rtl;
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1352px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.stagesGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 64px;
+  align-items: flex-end;
+}
+
+/* Right Column: Title, Description, and CTA */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: right;
+}
+
+.mainTitle {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: clamp(34px, 4.2vw, 48px);
+  font-weight: 700;
+  color: #001648;
+  line-height: 1.35;
+  margin: 0 0 18px 0;
+  letter-spacing: 0;
+}
+
+.bluePill {
+  background: #2B57AB;
+  color: #FFFFFF;
+  border-radius: 12px;
+  padding: 2px 16px 4px;
+  display: inline-block;
+  margin: 0 6px;
+}
+
+.description {
+  font-size: clamp(14px, 1.1vw, 15.5px);
+  color: #5E718D;
+  font-weight: 500;
+  line-height: 1.8;
+  max-width: 540px;
+  margin: 0 0 32px 0;
+}
+
+.ctaWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.ctaButton {
+  background: #001648;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 26px 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(6, 46, 136, 0.18);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.ctaButton:hover {
+  background: #2E69F0;
+  box-shadow: 0 12px 30px rgba(46, 105, 240, 0.35);
+  transform: translateY(-2px);
+}
+
+.ctaText {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.ctaIconCircle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Left Column: Stack of 4 Tilted Stage Cards */
+.cardsCol {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: 24px;
+  padding-bottom: 8px;
+}
+
+.cardsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  max-width: 400px;
+  perspective: 1000px;
+}
+
+.stageCard {
+  border-radius: 16px;
+  padding: 16px 28px;
+  text-align: right;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  position: relative;
+}
+
+.stageLabel {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 21px;
+  font-weight: 700;
+  display: block;
+  letter-spacing: -0.2px;
+}
+
+/* Subtle organic tilt angles matching Figma/screenshot */
+.tilt1 {
+  transform: rotate(0.4deg);
+  margin-bottom: 2px;
+  z-index: 2;
+}
+
+.tilt2 {
+  transform: rotate(-1.36deg);
+  margin-bottom: -2px;
+  z-index: 1;
+}
+
+.tilt3 {
+  transform: rotate(0.87deg);
+  margin-bottom: 10px;
+  z-index: 5;
+}
+
+.tilt4 {
+  transform: rotate(1.84deg);
+  z-index: 1;
+}
+
+/* Card Hover Interactions */
+.stageCard:hover {
+  transform: rotate(0deg) scale(1.03) translateY(-4px) !important;
+  z-index: 10;
+}
+
+/* Color Variants */
+.cardBlue {
+  background-color: #2B57AB;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(43, 87, 171, 0.28);
+  border: 1px solid transparent;
+}
+
+.cardBlue:hover {
+  box-shadow: 0 14px 34px rgba(43, 87, 171, 0.42);
+}
+
+.cardOrange {
+  background-color: #ED7646;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(237, 118, 70, 0.32);
+  border: 1px solid transparent;
+}
+
+.cardOrange:hover {
+  box-shadow: 0 14px 34px rgba(237, 118, 70, 0.48);
+}
+
+.cardWhite {
+  background-color: #FFFFFF;
+  color: #1E3A8A;
+  box-shadow: 0 8px 24px rgba(12, 35, 64, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.cardWhite:hover {
+  box-shadow: 0 14px 32px rgba(12, 35, 64, 0.14);
+  border-color: #BED8F8;
+  color: #2B57AB;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .stagesGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .contentCol {
+    align-items: center;
+    text-align: center;
+  }
+
+  .mainTitle br {
+    display: none;
+  }
+
+  .cardsCol {
+    justify-content: center;
+  }
+
+  .cardsStack {
+    max-width: 360px;
+  }
+
+  .stageCard {
+    padding: 16px 24px;
+  }
+
+  .stageLabel {
+    font-size: 19px;
+  }
+}

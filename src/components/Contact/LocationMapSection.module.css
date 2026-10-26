@@ -1,0 +1,528 @@
+/* ==========================================================================
+   Location Map Section - Premium Apple/SaaS Aesthetic
+   ========================================================================== */
+
+.locationSection {
+  position: relative;
+  width: 100%;
+  padding: 80px clamp(20px, 5.3vw, 80px);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F8FF 50%, #EEF3FF 100%);
+  direction: rtl;
+  font-family: 'IBM Plex Sans Arabic', 'Cairo', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+}
+
+/* Ambient Background Glow */
+.bgGlowOrb1 {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(79, 134, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.bgGlowOrb2 {
+  position: absolute;
+  bottom: 5%;
+  left: -5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 141, 40, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(45px);
+  z-index: 0;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.sectionHeader {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 52px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.locationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid rgba(79, 134, 255, 0.25);
+  padding: 8px 18px;
+  border-radius: 100px;
+  box-shadow: 0 4px 14px rgba(6, 46, 136, 0.06);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #062E88;
+}
+
+.pulseDot {
+  width: 9px;
+  height: 9px;
+  background-color: #22C55E;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: radarPing 2s infinite cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes radarPing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.sectionHeading {
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 800;
+  color: #062E88;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.sectionSubheading {
+  font-size: clamp(15px, 1.2vw, 17px);
+  color: #556987;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Map Main Wrapper */
+.mapCardContainer {
+  position: relative;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 24px 60px rgba(6, 46, 136, 0.12), 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.mapCardContainer:hover {
+  box-shadow: 0 30px 70px rgba(6, 46, 136, 0.16), 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Google Map Iframe Frame */
+.mapIframeWrapper {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background: #E8EEF8;
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: contrast(102%) saturate(108%);
+  display: block;
+}
+
+/* Animated Pin Marker Overlay (علم على المكان) */
+.mapPinOverlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+  cursor: pointer;
+  text-decoration: none;
+  animation: pinBounce 2.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+}
+
+@keyframes pinBounce {
+  0%, 100% {
+    transform: translate(-50%, -100%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -100%) translateY(-10px);
+  }
+}
+
+.pinBeaconBadge {
+  background: linear-gradient(135deg, #062E88 0%, #1A4ED8 100%);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  box-shadow: 0 8px 24px rgba(6, 46, 136, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mapPinOverlay:hover .pinBeaconBadge {
+  transform: scale(1.05);
+  box-shadow: 0 10px 28px rgba(6, 46, 136, 0.45);
+}
+
+.pinIconGraphic {
+  width: 42px;
+  height: 52px;
+  margin-top: -3px;
+  filter: drop-shadow(0 6px 14px rgba(220, 38, 38, 0.5));
+}
+
+.pinRadarGround {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.35);
+  animation: radarGroundPulse 2s infinite ease-out;
+}
+
+@keyframes radarGroundPulse {
+  0% {
+    width: 14px;
+    height: 7px;
+    opacity: 0.9;
+  }
+  100% {
+    width: 50px;
+    height: 22px;
+    opacity: 0;
+  }
+}
+
+/* Floating Glass Overlay Card */
+.floatingInfoCard {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: min(390px, calc(100% - 48px));
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(6, 46, 136, 0.14), 0 4px 12px rgba(0, 0, 0, 0.04);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: cardFadeSlide 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.infoCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #EEF2F6;
+  padding-bottom: 14px;
+}
+
+.brandBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandIconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #062E88 0%, #2055D5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(6, 46, 136, 0.25);
+}
+
+.brandTextGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandTitle {
+  font-size: 15px;
+  font-weight: 800;
+  color: #062E88;
+  line-height: 1.2;
+}
+
+.brandSub {
+  font-size: 11.5px;
+  color: #718096;
+  font-weight: 600;
+}
+
+.statusIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EBFDF2;
+  color: #166534;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Info Details List */
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.infoRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.infoIconCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F0F5FF;
+  color: #2055D5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.infoTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.infoLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8C9CAE;
+}
+
+.infoValue {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1A202C;
+  line-height: 1.45;
+}
+
+/* Actions Row in Card */
+.cardActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: linear-gradient(135deg, #062E88 0%, #1A4ED8 100%);
+  color: #FFFFFF;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(6, 46, 136, 0.2);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(6, 46, 136, 0.3);
+  color: #FFFFFF;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: #F7FAFC;
+  color: #062E88;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnSecondary:hover {
+  background: #EDF2F7;
+  border-color: #CBD5E0;
+  transform: translateY(-2px);
+}
+
+.copySuccessBadge {
+  position: absolute;
+  bottom: -32px;
+  right: 24px;
+  background: #166534;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeInOut 2s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-4px); }
+  15% { opacity: 1; transform: translateY(0); }
+  85% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-4px); }
+}
+
+/* Feature Cards Grid Below Map */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.featureCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 24px 22px;
+  border: 1px solid rgba(79, 134, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(6, 46, 136, 0.04);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(6, 46, 136, 0.08);
+  border-color: rgba(79, 134, 255, 0.35);
+}
+
+.featureIconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(32, 85, 213, 0.1) 0%, rgba(79, 134, 255, 0.18) 100%);
+  color: #062E88;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(6, 46, 136, 0.06);
+}
+
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.featureTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: #062E88;
+  margin: 0;
+}
+
+.featureDesc {
+  font-size: 13.5px;
+  color: #556987;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mapIframeWrapper {
+    height: 560px;
+  }
+
+  .floatingInfoCard {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: calc(100% - 32px);
+    margin: 16px auto 16px auto;
+    box-shadow: 0 8px 24px rgba(6, 46, 136, 0.1);
+  }
+}
+
+@media (max-width: 640px) {
+  .locationSection {
+    padding: 50px 16px;
+  }
+
+  .mapIframeWrapper {
+    height: 380px;
+  }
+
+  .cardActions {
+    grid-template-columns: 1fr;
+  }
+
+  .floatingInfoCard {
+    width: calc(100% - 20px);
+    padding: 18px;
+  }
+}

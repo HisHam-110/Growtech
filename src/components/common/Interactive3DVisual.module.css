@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Interactive 3D Visual - Dynamic Multi-Motion Physics Engine
+   Clean image, zero background elements, ultra-rich interactive dynamics
+   ========================================================================== */
+
+.visualWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: grab;
+  touch-action: none;
+  perspective: 1400px;
+}
+
+.visualWrapper:active {
+  cursor: grabbing;
+}
+
+/* 1. Dynamic Compound Zero-Gravity Levitation (Compound Wave Animation) */
+.dynamicFloat {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: compoundFloat 7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
+}
+
+/* When directly interacting or dragging, gently freeze autonomous float */
+.dynamicFloat.interactiveActive {
+  animation-play-state: paused;
+}
+
+/* 2. Interactive 3D Spring Tilt & Spin Layer */
+.tiltLayer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.06s ease-out;
+}
+
+/* 3. Pure Clean Image with subtle atmospheric dynamic drop-shadow */
+.image {
+  position: relative;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 14px 28px rgba(6, 46, 136, 0.15));
+  transition: filter 0.3s ease;
+}
+
+.visualWrapper:hover .image {
+  filter: drop-shadow(0 26px 48px rgba(6, 46, 136, 0.28));
+}
+
+/* Multi-Harmonic Compound 3D Floating Keyframes (Fluid wave in X, Y, Z, Roll, and Scale) */
+@keyframes compoundFloat {
+  0% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale(1);
+  }
+  20% {
+    transform: translate3d(8px, -14px, 12px) rotateZ(2.5deg) scale(1.02);
+  }
+  40% {
+    transform: translate3d(3px, -24px, 20px) rotateZ(0.5deg) scale(1.04);
+  }
+  60% {
+    transform: translate3d(-7px, -16px, 14px) rotateZ(-2.2deg) scale(1.03);
+  }
+  80% {
+    transform: translate3d(-4px, -6px, 6px) rotateZ(-1deg) scale(1.01);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale(1);
+  }
+}

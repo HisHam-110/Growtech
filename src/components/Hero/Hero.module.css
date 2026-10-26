@@ -1,0 +1,331 @@
+/* Full Screen Hero Container */
+.heroContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    180deg,
+    #f5f8fd 0%,
+    #edf4fe 45%,
+    #c7ddfd 65%,
+    #5698f9 82%,
+    #195ae2 100%
+  );
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Background Layer & 23 Grid Columns */
+.backgroundLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gridOverlay {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.gridColumn {
+  flex: 1;
+  border-left: 1px solid rgba(255, 255, 255, 0.26);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0.01) 60%,
+    rgba(0, 0, 0, 0.03) 100%
+  );
+}
+
+.gridColumn:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.26);
+}
+
+.radialGlow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 100vw);
+  height: clamp(300px, 50vh, 500px);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(240, 246, 255, 0.6) 45%,
+    rgba(180, 210, 255, 0.2) 70%,
+    transparent 85%
+  );
+  filter: blur(35px);
+  pointer-events: none;
+}
+
+/* Navbar Header - Fixed RTL Direction */
+.navbar {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 32px 48px;
+  display: flex;
+  direction: rtl;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Brand Logo (Positioned on the RIGHT of screen) */
+.brandLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+}
+
+.brandName {
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #062E88;
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+}
+
+/* Center Navigation Menu */
+.navMenu {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #062E88;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.navLink:hover {
+  color: #042062;
+  background: rgba(6, 46, 136, 0.05);
+}
+
+/* Active Nav Link Box Specs */
+.navLink.active {
+  min-width: 104px;
+  height: 55px;
+  border-radius: 16px;
+  padding: 12px 20px;
+  gap: 10px;
+  box-shadow: 0px 2px 4px 0px #2E69F01A;
+  background: #062E88;
+  color: #FFFFFF;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* Top Action Button (Positioned on the LEFT of screen) */
+.navAction {
+  display: flex;
+  align-items: center;
+}
+
+.navBtnSecondary {
+  height: 55px;
+  border-radius: 28px;
+  padding-top: 12px;
+  padding-right: 28px;
+  padding-bottom: 12px;
+  padding-left: 28px;
+  background: #062E88;
+  color: #FFFFFF;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px 0px #2E69F01A;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.navBtnSecondary:hover {
+  background: #042062;
+  transform: translateY(-1px);
+  box-shadow: 0px 4px 8px 0px rgba(46, 105, 240, 0.25);
+}
+
+/* Hero Content Area - Positioned Top under Navbar */
+.contentWrapper {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: clamp(2rem, 6vh, 4.5rem);
+  padding-bottom: clamp(2rem, 4vh, 3rem);
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.contentBlock {
+  max-width: 880px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.heading {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 56px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 150%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #062E88;
+  margin-bottom: clamp(0.75rem, 1.5vh, 1.25rem);
+  white-space: pre-line;
+  text-wrap: balance;
+  animation: textSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+  text-shadow: 0 4px 18px rgba(6, 46, 136, 0.08);
+}
+
+.description {
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-size: clamp(0.95rem, 1.1vw + 0.55rem, 1.15rem);
+  font-weight: 500;
+  line-height: 1.62;
+  color: #5E718D;
+  max-width: min(620px, 94%);
+  width: 100%;
+  margin-bottom: clamp(1.25rem, 2.5vh, 2rem);
+  text-wrap: balance;
+  animation: textSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
+}
+
+.ctaWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  animation: textSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+}
+
+.ctaButton {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 14px;
+  height: 55px;
+  background: #062E88;
+  color: #ffffff;
+  padding: 8px 28px 8px 12px;
+  border-radius: 35px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 14px 0px rgba(6, 46, 136, 0.25);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ctaButton:hover {
+  background: #042062;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0px 10px 24px 0px rgba(6, 46, 136, 0.35);
+}
+
+.ctaButton:hover .ctaIconCircle {
+  transform: rotate(45deg);
+}
+
+.ctaText {
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.ctaIconCircle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes textSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Responsive Adaptive Breakpoints */
+@media (max-width: 768px) {
+  .gridColumn:nth-child(even) {
+    display: none;
+  }
+  .navbar {
+    padding: 16px 20px;
+  }
+  .heading {
+    font-size: 28px;
+  }
+}

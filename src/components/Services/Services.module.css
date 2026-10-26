@@ -1,0 +1,196 @@
+/* Services Section Styles */
+.servicesSection {
+  width: 100%;
+  padding: 80px 24px 90px;
+  background-color: #FFFFFF;
+  position: relative;
+  direction: rtl;
+  font-family: var(--font-arabic, 'IBM Plex Sans Arabic', sans-serif);
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1352px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Header: Right Title/Subtitle, Left "معرفة المزيد" */
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  gap: 20px;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.mainTitle {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 700;
+  color: #001648;
+  line-height: 1.3;
+  margin: 0 0 8px 0;
+}
+
+.mainSubtitle {
+  font-size: clamp(14px, 1.1vw, 16px);
+  color: #5E718D;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* More Link / Button */
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #001648;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 6px 0;
+  font-family: inherit;
+  transition: color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.moreLink:hover {
+  color: #2E69F0;
+}
+
+.arrowIcon {
+  transition: transform 0.2s ease;
+}
+
+.moreLink:hover .arrowIcon {
+  transform: translateX(-4px);
+}
+
+/* Grid Layout for 4 Cards */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* Individual Card */
+.serviceCard {
+  background: #FFFFFF;
+  border: 1px solid #E5EBF2;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(6, 46, 136, 0.03);
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.serviceCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 34px rgba(6, 46, 136, 0.09);
+  border-color: #D0DCEE;
+}
+
+/* Top 3D Illustration Area */
+.imageWrapper {
+  background: #EFF4FA;
+  width: 100%;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cardImage {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.serviceCard:hover .cardImage {
+  transform: scale(1.06);
+}
+
+/* Bottom Content */
+.cardContent {
+  padding: 24px 18px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-heading, 'The Year of Handicrafts', 'IBM Plex Sans Arabic', sans-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: #001648;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #5E718D;
+  margin: 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .imageWrapper {
+    height: 190px;
+  }
+}
+
+@media (max-width: 640px) {
+  .servicesSection {
+    padding: 50px 16px 60px;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .imageWrapper {
+    height: 180px;
+  }
+
+  .cardContent {
+    padding: 20px 16px 24px;
+  }
+}
